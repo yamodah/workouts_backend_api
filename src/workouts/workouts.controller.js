@@ -56,7 +56,7 @@ module.exports = {
     list,
     read:[asyncErrorBoundary(workoutExists), read],
     typeMatch:[asyncErrorBoundary(typeMatch)],
-    DateMatch:[asyncErrorBoundary(dateMatch)],
+    dateMatch:[asyncErrorBoundary(dateMatch)],
     create:[asyncErrorBoundary(create)],
     update:[asyncErrorBoundary(workoutExists),asyncErrorBoundary(update)],
     delete:[asyncErrorBoundary(workoutExists),asyncErrorBoundary(destroy)]
