@@ -16,10 +16,10 @@ const dateMatch=(date)=>{
         .select("*")
         .where({date})
 }
-const typeMatch=(date)=>{
+const typeMatch=(type)=>{
     return knex("workouts")
         .select("*")
-        .where({date})
+        .where({type})
 }
 const update=(updatedworkout)=>{
     return knex("workouts")
