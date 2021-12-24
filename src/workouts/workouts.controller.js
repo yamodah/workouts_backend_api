@@ -4,9 +4,9 @@ const asyncErrorBoundary = require("../errors/asyncErrorBoundary")
 //ID VALIDATION
 async function workoutExists(req, res, next) {
     const { workoutId } = req.params;
-  
+    // console.log(typeof workoutId)
     const foundWorkout = await service.read(workoutId);
-  
+    // console.log(foundWorkout)
     if (foundWorkout) {
       res.locals.workout = foundWorkout;
       return next();
@@ -25,14 +25,15 @@ async function list (req,res,next){
 function read(req, res, next){
     res.json({data:res.locals.workout})
 }
-function dateMatch(req, res, next){
+async function dateMatch(req, res, next){
     const {workoutDate} = req.params
-    const data = service.dateMatch(workoutDate)
+    // console.log(workoutDate)
+    const data = await service.dateMatch(workoutDate)
     res.json({data})
 }
-function typeMatch(req, res, next){
+async function typeMatch(req, res, next){
     const {workoutType} = req.params
-    const data = service.dateMatch(workoutType)
+    const data = await service.typeMatch(workoutType)
     res.json({data})
 }
 async function create(req, res, next){
